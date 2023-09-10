@@ -909,7 +909,7 @@ def main(args):
             save_file(state_dict, os.path.join(save_path, "efficient_weights.safetensors"))
             if args.train_text_encoder:
                 state_dict = get_state_dict(accelerator.unwrap_model(text_encoder, keep_fp32_wrapper=True))
-                save_file(state_dict, os.path.join(save_path, "efficient_weights.safetensors"))
+                save_file(state_dict, os.path.join(save_path, "efficient_weights_te.safetensors"))
             with open(os.path.join(save_path, "config.json"), "w") as f:
                 json.dump(args.__dict__, f, indent=2)
             print(f"[*] Weights saved at {save_path}")
